@@ -1,21 +1,34 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
+// Import Tailwind and Bootstrap
+import "tailwindcss/tailwind.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 @customElement("button-atom")
 export class ButtonAtom extends LitElement {
   @property({ type: String }) label = "Click";
-  @property({ type: String }) color = "blue"; // color variants (tailwind or bootstrap)
+  @property({ type: String }) color: "blue" | "red" | "green" = "blue"; // color variants (tailwind or bootstrap)
   @property({ type: Boolean }) disabled = false;
-  @property({ type: String }) size = "medium"; // small, medium, large
-  @property({ type: String }) library = "tailwind"; // 'tailwind' or 'bootstrap'
+  @property({ type: String }) size: "small" | "medium" | "large" = "medium"; // small, medium, large
+  @property({ type: String }) library: "tailwind" | "bootstrap" = "tailwind"; // 'tailwind' or 'bootstrap'
+
+  // Disable Shadow DOM, using light DOM instead
+  createRenderRoot() {
+    return this;
+  }
 
   static styles = css`
     :host {
       display: inline-block;
     }
+    button {
+      display: inline-block;
+    }
+    button::part(button) {
+      display: inline-block;
+    }
   `;
 
-  // Tailwind classes mapping
   private tailwindClasses() {
     const sizeClasses = {
       small: "px-3 py-1 text-sm",
@@ -29,14 +42,11 @@ export class ButtonAtom extends LitElement {
       green: "bg-green-500 text-white",
     };
 
-    return `${sizeClasses[this.size as keyof typeof sizeClasses]} ${
-      colorClasses[this.color as keyof typeof colorClasses]
-    } rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+    return `${sizeClasses[this.size]} ${colorClasses[this.color]} rounded-md  ${
       this.disabled ? "opacity-50 cursor-not-allowed" : ""
     }`;
   }
 
-  // Bootstrap classes mapping
   private bootstrapClasses() {
     const sizeClasses = {
       small: "btn-sm",
@@ -50,9 +60,9 @@ export class ButtonAtom extends LitElement {
       green: "btn-success",
     };
 
-    return `btn ${sizeClasses[this.size as keyof typeof sizeClasses]} ${
-      colorClasses[this.color as keyof typeof colorClasses]
-    } ${this.disabled ? "disabled" : ""}`;
+    return `btn ${sizeClasses[this.size]} ${colorClasses[this.color]} ${
+      this.disabled ? "disabled" : ""
+    }`;
   }
 
   render() {
@@ -73,7 +83,7 @@ export class ButtonAtom extends LitElement {
 
   private handleClick() {
     this.dispatchEvent(
-      new CustomEvent("button-atom-click", {
+      new CustomEvent("button-atom", {
         detail: { label: this.label },
         bubbles: true,
         composed: true,

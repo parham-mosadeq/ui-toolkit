@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import path from "path";
-
 // * version system
 const UI_TOOLKIT_VERSION = "ui-toolkit-v-beta-0-0-01";
 
