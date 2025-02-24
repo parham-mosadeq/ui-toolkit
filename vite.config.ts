@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import path from "path";
+
 // * version system
 const UI_TOOLKIT_VERSION = "ui-toolkit-v-beta-0-0-01";
 
@@ -10,12 +11,11 @@ export default defineConfig({
     target: "esnext",
     modulePreload: false,
     outDir: "dist",
-    assetsDir: "./public",
+    assetsDir: "assets",
     rollupOptions: {
-      // todo need modification
       output: {
         chunkFileNames: `chunks/[name]-${UI_TOOLKIT_VERSION}-[hash].js`,
-        entryFileNames: `assets/[name]-${UI_TOOLKIT_VERSION}-[hash].js`,
+        entryFileNames: `main/[name]-${UI_TOOLKIT_VERSION}-[hash].js`,
         assetFileNames: `assets/[name]-${UI_TOOLKIT_VERSION}-[hash].[ext]`,
       },
     },

@@ -1,16 +1,26 @@
 {
-  "name": "ui-toolkit",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "ui-toolkit-lit",
+  "version": "0.0.1",
+  "main": "dist/main/[name].js",
+  "module": "dist/button-atom.mjs",
+  "types": "dist/button-atom.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "lit",
+    "ui-kit",
+    "button",
+    "web-components",
+    "lit-element",
+    "tailwind",
+    "bootstrap"
+  ],
+  "author": "Your Name <your-email@example.com>",
   "license": "ISC",
-  "description": "",
+  "description": "A UI toolkit library built with LitElement, Tailwind, and Bootstrap for reusable components.",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "lit": "^3.2.1"
@@ -20,5 +30,8 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
     "vite": "^6.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
