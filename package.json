@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit-lit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/main/[name].js",
   "module": "dist/button-atom.mjs",
   "types": "dist/button-atom.d.ts",
