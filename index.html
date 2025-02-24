@@ -10,6 +10,14 @@
   <body>
     <my-element name="World"></my-element>
     <button-atom label="Submit" color="green"></button-atom>
-    <button-atom label="Cancel" color="red" disabled></button-atom>
+    <button-atom label="Cancel" color="red" onclick="" disabled></button-atom>
+    <script>
+      document
+        .querySelector("button-atom")
+        ?.addEventListener("button-atom", (event) => {
+          console.log("Button clicked:", event.detail.label);
+          alert(`Button clicked: ${event.detail.label}`);
+        });
+    </script>
   </body>
 </html>

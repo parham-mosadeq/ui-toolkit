@@ -36,22 +36,24 @@ export class ButtonAtom extends LitElement {
     }
   `;
 
-  // Render the button based on properties
   render() {
     return html`
       <button
         class="${this.color}"
         ?disabled="${this.disabled}"
-        @click="${this._handleClick}">
+        @click="${this.handleClick}">
         ${this.label}
       </button>
     `;
   }
 
-  // Handle the button click event
-  private _handleClick() {
+  private handleClick() {
     this.dispatchEvent(
-      new CustomEvent("button-click", { detail: { label: this.label } })
+      new CustomEvent("button-atom", {
+        detail: { label: this.label },
+        bubbles: true,
+        composed: true,
+      })
     );
   }
 }
