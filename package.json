@@ -1,14 +1,12 @@
 {
   "name": "ui-toolkit-lit",
-  "version": "0.0.2",
-  "main": "dist/main/[name].js",
-  "module": "dist/button-atom.mjs",
-  "types": "dist/button-atom.d.ts",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+  "version": "0.0.612",
+  "main": "dist/lit/index.cjs.js",
+  "module": "dist/lit/index.esm.js",
+  "types": "dist/types/lit/index.d.ts",
+  "description": "A UI toolkit library built with LitElement, Tailwind, and Bootstrap for reusable components.",
+  "author": "Your Name <your-email@example.com>",
+  "license": "ISC",
   "keywords": [
     "lit",
     "ui-kit",
@@ -16,22 +14,49 @@
     "web-components",
     "lit-element",
     "tailwind",
-    "bootstrap"
+    "bootstrap",
+    "react"
   ],
-  "author": "Your Name <your-email@example.com>",
-  "license": "ISC",
-  "description": "A UI toolkit library built with LitElement, Tailwind, and Bootstrap for reusable components.",
+  "scripts": {
+    "dev": "vite",
+    "build:lit": "vite build --config vite.lit.config.ts",
+    "build:react": "vite build --config vite.react.config.ts",
+    "build": "npm run build:lit && npm run build:react",
+    "preview": "vite preview"
+  },
   "dependencies": {
+    "@lit/react": "^1.0.7",
     "bootstrap": "^5.3.3",
-    "lit": "^3.2.1"
+    "lit": "^3.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.13.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
-    "vite": "^6.1.1"
+    "vite": "^6.1.1",
+    "vite-plugin-dts": "^4.5.0"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "exports": {
+    "import": "./dist/lit/index.esm.js",
+    "require": "./dist/lit/index.cjs.js",
+    "react": {
+      "import": "./dist/react/index.es.js",
+      "require": "./dist/react/index.cjs.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "react": [
+        "dist/types/react/index.d.ts"
+      ],
+      "*": [
+        "dist/types/lit/index.d.ts"
+      ]
+    }
   }
 }
