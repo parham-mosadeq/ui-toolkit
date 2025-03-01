@@ -8,3 +8,9 @@ export class UIButtonTailwind extends UIButton {
     this.variant = "tailwind";
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "ui-button-tailwind": UIButtonTailwind;
+  }
+}

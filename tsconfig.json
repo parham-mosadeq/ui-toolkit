@@ -10,9 +10,14 @@
     "baseUrl": ".",
     "paths": {
       "@/src/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"]
+      "@/components/*": ["./src/components/*"],
+      "ui-toolkit": ["node_modules/ui-toolkit/dist"]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+    "jsxImportSource": "react",
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": false
+  },
+  "include": ["src"]
 }

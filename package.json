@@ -1,9 +1,9 @@
 {
-  "name": "ui-toolkit",
-  "version": "1.0.0",
+  "name": "ui-toolkit-parham",
+  "version": "0.0.616",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && tsc",
     "preview": "vite preview"
   },
   "keywords": [],
@@ -24,12 +24,12 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/lit.es.js",
       "types": "./dist/index.d.ts"
     },
     "./react": {
-      "import": "./dist/react/index.js",
-      "types": "./dist/react/index.d.ts"
+      "import": "./dist/react.es.js",
+      "types": "./dist/index.d.ts"
     }
   }
 }

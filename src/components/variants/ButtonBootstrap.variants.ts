@@ -8,3 +8,9 @@ export class UIButtonBootstrap extends UIButton {
     this.variant = "bootstrap";
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "ui-button-bootstrap": UIButtonBootstrap;
+  }
+}

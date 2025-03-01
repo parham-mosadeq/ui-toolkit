@@ -31,3 +31,9 @@ export class UIButton extends LitElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "ui-button": UIButton;
+  }
+}

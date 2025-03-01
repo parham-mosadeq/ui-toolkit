@@ -1,25 +1,29 @@
 import { defineConfig } from "vite";
 import path from "path";
 
-// * version system
-const UI_TOOLKIT_VERSION = "ui-toolkit-v-beta-0-0-01";
-
 export default defineConfig({
-  root: ".",
-  publicDir: "./public",
   build: {
     target: "esnext",
     modulePreload: false,
     outDir: "dist",
-    assetsDir: "./public",
-  },
-  resolve: {
-    alias: {
-      "@/src": path.resolve(__dirname, "src"),
+    lib: {
+      entry: {
+        lit: path.resolve(__dirname, "src/index.ts"), // Lit build
+        react: path.resolve(__dirname, "src/react/index.ts"), // React build
+      },
+      name: "ui-toolkit",
+      formats: ["es", "cjs"],
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
     },
-  },
-  server: {
-    port: 3000,
-    open: true,
+    rollupOptions: {
+      external: ["lit", "react", "react-dom"],
+      output: {
+        globals: {
+          lit: "Lit",
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
   },
 });
