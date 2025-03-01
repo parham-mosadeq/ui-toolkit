@@ -1,59 +1,33 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-@customElement("button-atom")
-export class ButtonAtom extends LitElement {
-  @property({ type: String }) label = "click";
-  @property({ type: String }) color = "blue";
-  @property({ type: Boolean }) disabled = false;
+@customElement("ui-button")
+export class UIButton extends LitElement {
+  @property({ type: String }) variant: "bootstrap" | "tailwind" = "bootstrap";
+
   static styles = css`
-    :host {
-      display: inline-block;
-    }
     button {
       padding: 10px 20px;
+      border-radius: 4px;
       font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
     }
-    button:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-    button.blue {
+    .bootstrap {
       background-color: blue;
       color: white;
+      border: none;
     }
-    button.red {
-      background-color: red;
+    .tailwind {
+      background-color: black;
       color: white;
-    }
-    button.green {
-      background-color: green;
-      color: white;
+      border: none;
     }
   `;
 
   render() {
     return html`
-      <button
-        class="${this.color}"
-        ?disabled="${this.disabled}"
-        @click="${this.handleClick}">
-        ${this.label}
+      <button class="${this.variant}">
+        <slot></slot>
       </button>
     `;
-  }
-
-  private handleClick() {
-    this.dispatchEvent(
-      new CustomEvent("button-atom", {
-        detail: { label: this.label },
-        bubbles: true,
-        composed: true,
-      })
-    );
   }
 }

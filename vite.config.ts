@@ -12,14 +12,6 @@ export default defineConfig({
     modulePreload: false,
     outDir: "dist",
     assetsDir: "./public",
-    rollupOptions: {
-      // todo need modification
-      output: {
-        chunkFileNames: `chunks/[name]-${UI_TOOLKIT_VERSION}-[hash].js`,
-        entryFileNames: `assets/[name]-${UI_TOOLKIT_VERSION}-[hash].js`,
-        assetFileNames: `assets/[name]-${UI_TOOLKIT_VERSION}-[hash].[ext]`,
-      },
-    },
   },
   resolve: {
     alias: {

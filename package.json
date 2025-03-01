@@ -1,7 +1,6 @@
 {
   "name": "ui-toolkit",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,11 +11,25 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@lit/react": "^1.0.7",
     "lit": "^3.2.1"
   },
   "devDependencies": {
     "@types/node": "^22.13.5",
     "typescript": "^5.7.3",
     "vite": "^6.1.1"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
+    }
   }
 }
