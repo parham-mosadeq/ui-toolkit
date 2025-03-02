@@ -17,7 +17,37 @@
     "jsxImportSource": "react",
     "declaration": true,
     "declarationDir": "dist",
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": false,
+    "lib": ["ESNext", "DOM"],
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": ["src"]
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "ESNext",
+//     "module": "ESNext",
+//     "moduleResolution": "Bundler",
+//     "jsx": "react-jsx",
+//     "declaration": true,
+//     "declarationDir": "dist/types",
+//     "outDir": "dist",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "experimentalDecorators": true,
+//     "lib": ["ESNext", "DOM"],
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["src/*"],
+//       "ui-toolkit-parham/*": ["dist/*"]
+//     }
+//   },
+//   "include": ["src/**/*", "types/**/*"],
+//   "exclude": ["node_modules"]
+// }

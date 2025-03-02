@@ -1,1 +1,5 @@
-export * from "./Button";
+export {
+  ReactButton,
+  ReactButtonBootstrap,
+  ReactButtonTailwind,
+} from "./Button";

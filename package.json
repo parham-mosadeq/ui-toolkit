@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit-parham",
-  "version": "0.0.616",
+  "version": "0.0.620",
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc",
